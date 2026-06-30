@@ -1,0 +1,54 @@
+// =====================================================================
+// FIRESTORE SECURITY RULES
+// =====================================================================
+// Eta deploy korar jonno: firebase deploy --only firestore:rules
+//
+// Logic:
+// - Login na thakle kichu dekhte/change korte parbe na
+// - Login thakle (member ba admin) shob data porte parbe
+// - Shudhu admin notun member/expense/bill add-update-delete korte parbe
+// - Notice/complaint: jekono login thaka user post korte pare, shudhu
+//   admin ba post-er author delete korte pare
+// =====================================================================
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Login kora user-er role "admin" kina check kora
+    function isAdmin() {
+      return request.auth != null &&
+        get(/databases/$(database)/documents/members/$(request.auth.uid)).data.role == "admin";
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    match /members/{memberId} {
+      allow read: if isSignedIn();
+      // Shudhu admin notun member add/update/delete korte parbe
+      allow write: if isAdmin();
+    }
+
+    match /expenses/{expenseId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    match /bills/{billId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    match /notices/{noticeId} {
+      allow read: if isSignedIn();
+      // Jekono login kora user notice/complaint post korte parbe
+      allow create: if isSignedIn();
+      // Shudhu admin ba post-er author delete korte parbe
+      allow delete: if isAdmin() || (isSignedIn() && resource.data.authorId == request.auth.uid);
+      allow update: if isAdmin();
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2563EB;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  @apply bg-brand-500 hover:bg-brand-600 text-white font-display font-semibold px-5 py-2.5 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-outline {
+  @apply border border-slate2-200 text-slate2-600 hover:bg-slate2-50 font-display font-medium px-5 py-2.5 rounded-lg transition-colors duration-200;
+}
+
+.btn-danger {
+  @apply bg-accent-red/10 text-accent-red hover:bg-accent-red/20 font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+}
+
+.input-field {
+  @apply w-full border border-slate2-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition;
+}
+
+.card {
+  @apply bg-white border border-slate2-100 rounded-xl2 p-6 shadow-sm;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
