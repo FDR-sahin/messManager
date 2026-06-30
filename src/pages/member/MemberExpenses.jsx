@@ -16,8 +16,8 @@ function MemberExpenses() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-display font-bold text-slate2-900">Bazar Khoroch</h1>
-        <p className="text-slate2-400 mt-1">Shobar bazar entry ekhane dekhte parben</p>
+        <h1 className="md:text-2xl text-xl font-display font-bold text-slate2-900 pl-12">Bazar Khoroch</h1>
+        <p className="text-slate2-400 mt-1 pl-12">Shobar bazar entry ekhane dekhte parben</p>
       </div>
 
       {Object.keys(expensesByMember).length > 0 && (

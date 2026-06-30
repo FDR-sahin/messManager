@@ -30,8 +30,8 @@ function MemberBills() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-display font-bold text-slate2-900">Amar Bill</h1>
-        <p className="text-slate2-400 mt-1">Apnar bill-er status ekhane dekhte parben</p>
+        <h1 className="md:text-2xl text-xl font-display font-bold text-slate2-900 pl-12">Amar Bill</h1>
+        <p className="text-slate2-400 mt-1 pl-12">Apnar bill-er status ekhane dekhte parben</p>
       </div>
 
       <div className="card">

@@ -65,8 +65,8 @@ function NoticeBoard() {
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-display font-bold text-slate2-900">Notice Board</h1>
-          <p className="text-slate2-400 mt-1">
+          <h1 className="md:text-2xl text-xl font-display font-bold text-slate2-900 md:pl-0 pl-12">Notice Board</h1>
+          <p className="text-slate2-400 mt-1 md:pl-0 pl-12">
             {isAdmin ? "Notice post korun, member-er complaint dekhun" : "Notice dekhun, complaint janan"}
           </p>
         </div>
@@ -134,7 +134,7 @@ function NoticeBoard() {
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${
+                  <span className={`text-xs font-medium px-2.5  py-1 rounded-full ${
                     notice.type === "notice"
                       ? "bg-brand-50 text-brand-600"
                       : "bg-accent-amber/10 text-accent-amber"

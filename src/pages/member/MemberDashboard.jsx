@@ -29,10 +29,10 @@ function MemberDashboard() {
   return (
     <div>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8">
-        <h1 className="text-2xl font-display font-bold text-slate2-900">
-          Assalamu Alaikum, {userProfile?.name}
+        <h1 className="text-2xl font-display  pl-12 font-bold text-slate2-900">
+          Assalamu Alaikum, <span className="text-green-500"> {userProfile?.name} </span>
         </h1>
-        <p className="text-slate2-400 mt-1">Apnar mess account-er summary ekhane</p>
+        <p className="text-slate2-400 mt-1 pl-12">Apnar mess account-er summary ekhane</p>
       </motion.div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
